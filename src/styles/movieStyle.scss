@@ -1,0 +1,26 @@
+.movie{
+
+  &-list{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    margin: 0 10%;
+  }
+
+  &-container{
+    margin: 1%;
+    width: 185px;
+    text-decoration: none;
+    color: black;
+
+    img{
+      box-shadow: 6px 6px 6px #403d3d;
+      border-radius: 1em;
+    }
+  }
+}
+
+img{
+  width: auto;
+  height: auto;
+}
