@@ -13,9 +13,12 @@
     text-decoration: none;
     color: black;
 
+    &:hover{
+      
+    }
+
     img{
       box-shadow: 6px 6px 6px #403d3d;
-      border-radius: 1em;
     }
   }
 }

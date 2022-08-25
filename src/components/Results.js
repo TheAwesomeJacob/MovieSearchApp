@@ -16,7 +16,7 @@ const Results = ({ items }) => {
                 movieTitle={item.title}
                 releaseDate={item.release_date}
                 voteRaitings={item.vote_average}
-                backgroundImage={item.poster_path}
+                posterImage={item.poster_path}
               />
             ))
           )
