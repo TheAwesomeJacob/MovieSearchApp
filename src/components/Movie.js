@@ -6,9 +6,9 @@ const Movie = (props) => {
   const fullSourceImage = 'https://image.tmdb.org/t/p/w185//' + props.posterImage;
 
   return(
-    <Link to='/movie-description' className="movie-container">
-      <img src={fullSourceImage} alt="poster" />
+    <Link to={`/movie-description/${props.id}`} className="movie-container">
       <div className="movie-container-description">
+        <img src={fullSourceImage} alt="poster" />
         <h3>{props.movieTitle}</h3>
         <p>{props.voteRaitings}</p>
         <p>{props.releaseDate}</p>

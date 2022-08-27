@@ -10,10 +10,10 @@ const HomePage = () => {
   let currentPage = page;
 
   useEffect(() => {
-    requestCities()
+    requestMoviesDiscovered()
   }, [page])
 
-  async function requestCities() {
+  async function requestMoviesDiscovered() {
     const res = await fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=ee6747f87f0b1852e2dc288163f344c7&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`
     )
@@ -31,7 +31,7 @@ const HomePage = () => {
   }
   
   return (
-    <div>
+    <div className="home-page">
       <div className="home-banner">
         <h1>Welcome to Movie Search</h1>
       </div>

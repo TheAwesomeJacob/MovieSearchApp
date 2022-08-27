@@ -12,18 +12,59 @@
     width: 185px;
     text-decoration: none;
     color: black;
-
-    &:hover{
-      
-    }
+    
 
     img{
       box-shadow: 6px 6px 6px #403d3d;
     }
   }
+
+  &-detail{
+    background-color: rgb(232, 226, 226);
+    height: 100%;
+
+    &-wrapper{
+      width: 1080px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    &-backdrop-image{
+      width: 1080px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    &-title{
+      color: #fff;
+      backdrop-filter: blur(10px);
+      width: 75.8%;
+      padding-left: 1.8em;
+      font-size: 1.5em;
+      position: absolute;
+      bottom: 4.5em;
+      height: 21%;
+      padding-top: 3em;
+    }
+
+    &-description{
+      height: 500px;
+      margin-top: 20px;
+      background-color: rgb(245, 238, 238)
+    }
+  }
+  
 }
 
 img{
   width: auto;
   height: auto;
+}
+
+
+
+.black-banner{
+  width: 100%;
+  background-color: black;
+  height: 100px;
 }
