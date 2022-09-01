@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 const MovieDetail = () => {
   const params = useParams();
   const [movieDetail, setMovieDetail] = useState();
+  const [movieScore, setMovieScore] = useState([]);
   const [movieImages, setMovieImages] = useState();
 
   useEffect(() => {
@@ -18,6 +19,25 @@ const MovieDetail = () => {
     const json = await res.json();
 
     setMovieDetail(json);
+
+    let reviewScore = {
+      score: json.vote_average.toString(),
+      scoreColor: ''
+    };
+    reviewScore.score = reviewScore.score.split('').slice(0, 3).join('');
+    if(reviewScore.score)
+      if(Number(reviewScore.score) > 7){
+        reviewScore.scoreColor = 'good';
+      } else if(Number(reviewScore.score) > 5 && Number(reviewScore.score) <= 7 ) {
+        reviewScore.scoreColor = 'avarage';
+      } else {
+        reviewScore.scoreColor = 'bad';
+      }
+    else{
+      reviewScore.score = '-';
+    }
+
+    setMovieScore(reviewScore);
   }
 
   async function requestMoviesImages() {
@@ -27,7 +47,9 @@ const MovieDetail = () => {
     const json = await res.json();
 
     setMovieImages(json);
+
   }
+
 
   return(
     <div className="movie-detail">
@@ -40,7 +62,10 @@ const MovieDetail = () => {
         ) : (
           <div className="movie-detail-wrapper">
             <img className='movie-detail-backdrop-image' src={`https://image.tmdb.org/t/p/original/${movieDetail.backdrop_path}`} />
-            <span className="movie-detail-title">{movieDetail.original_title}</span>
+            <div className='movie-detail-title-score'>
+              <span className="movie-detail-title">{movieDetail.original_title}</span>
+              <span className={`movie-detail-score ${movieScore.scoreColor}`}>{movieScore.score}</span>
+            </div>
             <section className="movie-detail-description">
               <div></div>
             </section>

@@ -35,22 +35,43 @@
       display: block;
     }
 
-    &-title{
+    &-title-score{
       color: #fff;
       backdrop-filter: blur(10px);
-      width: 75.8%;
-      padding-left: 1.8em;
-      font-size: 1.5em;
+      width: inherit;
+      font-size: 3.5em;
       position: absolute;
-      bottom: 4.5em;
+      bottom: 1.5em;
       height: 21%;
-      padding-top: 3em;
+      padding: 1em 1em;
+      display: flex;
+      justify-content: space-between;
     }
 
     &-description{
       height: 500px;
       margin-top: 20px;
       background-color: rgb(245, 238, 238)
+    }
+
+    &-score{
+      font-size: 0.5em;
+      background-color: white;
+      border-radius: 5px;
+      height: fit-content;
+      padding: 5px;
+
+      &.good{
+        background-color: green;
+      }
+
+      &.avarage{
+        background-color: rgb(255, 255, 0);
+      }
+
+      &.bad{
+        background-color: rgb(255, 0, 0);
+      }
     }
   }
   
