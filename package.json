@@ -2,10 +2,14 @@
   "name": "citiesapp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.mjs",
+  "targets": {
+    "main": false
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "build": "parcel build ./buildProduction/index.html"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +17,8 @@
   "dependencies": {
     "axios": "^0.27.2",
     "classname": "^0.0.0",
-    "parcel": "^2.6.2",
+    "firebase": "^9.9.4",
+    "parcel": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.3.0",
