@@ -1,0 +1,21 @@
+.arrow{
+    &-left{
+      &-visible{
+        display: block;
+      }
+
+      &-hidden{
+        display: none;
+      }
+    }
+
+    &-right{
+        &-visible{
+          display: block;
+        }
+  
+        &-hidden{
+          display: none;
+        }
+    }
+}

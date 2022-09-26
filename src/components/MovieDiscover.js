@@ -1,13 +1,17 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
-import Results from './Results'
-import '../styles/main.scss'
+import Results from './Results';
+import '../styles/main.scss';
+import '../styles/paginationStyle.scss'
+import Pagination from './Pagination';
 
-const HomePage = () => {
+const MovieDiscover = () => {
 
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   let currentPage = page;
+  let leftArrowVisible = 'arrow-left-hidden';
+  let rightArrowVisible = 'arrow-right-visible';
 
   useEffect(() => {
     requestMoviesDiscovered()
@@ -24,24 +28,25 @@ const HomePage = () => {
 
   const nextPage = () => {
     setPage(++currentPage);
+    rightArrowVisible = currentPage === totalPages ? 'arrow-right-hidden' : 'arrow-right-visible';
   }
 
   const previousPage = () => {
     if(currentPage > 1) setPage(--currentPage);
+    leftArrowVisible = currentPage === 1 ? 'arrow-left-hidden' : 'arrow-left-visible';
   }
   
   return (
     <div className="home-page">
       <div className="home-banner">
-        <h1>Welcome to Movie Search</h1>
+        <h1>Welcome to Movie Ocean</h1>
       </div>
       <Results items={movies}/>
-      <button onClick={() => {
-        previousPage();
-        }}>Left</button>
-      <button onClick={() => {
-        nextPage();
-      }}>Right</button>
+      <div className='pagination'>
+        <button className={leftArrowVisible} onClick={() => { previousPage() }}>&lt;</button>
+        <Pagination totalPages={totalPages} />
+        <button className={rightArrowVisible} onClick={() => { nextPage() }}>&gt;</button>
+      </div>
     </div>
   );
 };

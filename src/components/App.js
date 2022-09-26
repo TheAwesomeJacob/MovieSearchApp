@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createRoot  } from "react-dom/client";
-import HomePage from './HomePage';
+import MovieDiscover from './MovieDiscover';
 import MovieDetail from './MovieDetail';
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />}/>
+          <Route path="/" element={<MovieDiscover />}/>
           <Route path="/movie-description/:id" element={<MovieDetail />}/>
         </Routes>
       </BrowserRouter>
